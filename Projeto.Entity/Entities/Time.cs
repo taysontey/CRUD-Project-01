@@ -11,5 +11,12 @@ namespace Projeto.Entity.Entities
         public int IdTime { get; set; }
         public string Nome { get; set; }
         public DateTime DataFundacao { get; set; }
+
+        #region Relacionamentos
+
+        public virtual ICollection<Jogador> Jogadores { get; set; }
+
+        #endregion
     }
+
 }
