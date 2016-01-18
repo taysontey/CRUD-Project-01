@@ -13,10 +13,11 @@ namespace Projeto.Entity.Entities
         public string Apelido { get; set; }
         public DateTime DataNascimento { get; set; }
         public string Posicao { get; set; }
+        public int IdTime { get; set; }
 
         #region Relacionamentos
 
-        public Time Time { get; set; }
+        public virtual Time Time { get; set; }
 
         #endregion
     }
