@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,13 +49,15 @@
   <ItemGroup>
     <Compile Include="Configuration\JogadorConfiguration.cs" />
     <Compile Include="Configuration\TimeConfiguration.cs" />
+    <Compile Include="DataSource\Conexao.cs" />
+    <Compile Include="Generics\GenericDal.cs" />
+    <Compile Include="Generics\IGenericDal.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Persistence\JogadorDal.cs" />
+    <Compile Include="Persistence\TimeDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataSource\" />
-    <Folder Include="Generics\" />
-    <Folder Include="Persistence\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -63,6 +66,10 @@
     <ProjectReference Include="..\Projeto.Entity\Projeto.Entity.csproj">
       <Project>{efb10674-d0ed-447d-b325-d8d06b4294dd}</Project>
       <Name>Projeto.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Projeto.Web\Projeto.Web.csproj">
+      <Project>{2af567bb-ce65-4eee-952d-08c8becf5ce6}</Project>
+      <Name>Projeto.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
