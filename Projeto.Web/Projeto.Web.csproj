@@ -97,9 +97,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\JogadorController.cs" />
+    <Compile Include="Controllers\TimeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\JogadorModel.cs" />
+    <Compile Include="Models\TimeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -113,8 +117,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\Jogador\" />
+    <Folder Include="Views\Time\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Projeto.DAL\Projeto.DAL.csproj">
+      <Project>{903c16b6-cf16-4e41-89cc-04ca90e21cf9}</Project>
+      <Name>Projeto.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Projeto.Entity\Projeto.Entity.csproj">
+      <Project>{efb10674-d0ed-447d-b325-d8d06b4294dd}</Project>
+      <Name>Projeto.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

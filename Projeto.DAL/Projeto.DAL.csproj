@@ -67,10 +67,6 @@
       <Project>{efb10674-d0ed-447d-b325-d8d06b4294dd}</Project>
       <Name>Projeto.Entity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Projeto.Web\Projeto.Web.csproj">
-      <Project>{2af567bb-ce65-4eee-952d-08c8becf5ce6}</Project>
-      <Name>Projeto.Web</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
