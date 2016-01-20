@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Projeto CRUD - ENTITY/MVC(RAZOR)</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="row">
+        @RenderBody()
+    </div>
+
+    <div class="container">
+        <h4>Time</h4>
+        <a href="/Time/Cadastro">Cadastrar</a>
+        <br />
+        <a href="/Time/Consulta">Consultar</a> 
+        <hr />
+
+        <h4>Jogador</h4>
+        <a href="/Jogador/Cadastro">Cadastrar</a>
+        <br />
+        <a href="/Jogador/Consulta">Consultar</a>
+        
+    </div>
+</body>
+</html>
