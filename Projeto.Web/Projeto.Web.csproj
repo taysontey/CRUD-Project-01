@@ -131,6 +131,8 @@
     <Content Include="Views\Shared\Layou.cshtml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Time\Cadastro.cshtml" />
+    <Content Include="Views\Jogador\Cadastro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -138,10 +140,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Jogador\" />
-    <Folder Include="Views\Time\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Projeto.DAL\Projeto.DAL.csproj">
       <Project>{903c16b6-cf16-4e41-89cc-04ca90e21cf9}</Project>

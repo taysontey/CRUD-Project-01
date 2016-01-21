@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Projeto.Entity.Entities;
+using Projeto.DAL.Persistence;
+using Projeto.Web.Models;
 
 namespace Projeto.Web.Controllers
 {
@@ -11,7 +14,7 @@ namespace Projeto.Web.Controllers
         [AllowAnonymous]
         public ActionResult Cadastro()
         {
-            return View();
+            return View(new JogadorModelCadastro());
         }
 
         [AllowAnonymous]
