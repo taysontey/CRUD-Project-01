@@ -20,7 +20,28 @@ namespace Projeto.Web.Controllers
         [AllowAnonymous]
         public ActionResult Consulta()
         {
-            return View();
+            var model = new List<TimeModelConsulta>();
+
+            try
+            {
+                TimeDal d = new TimeDal();
+
+                foreach (Time t in d.FindAll())
+                {
+                    var item = new TimeModelConsulta();
+                    item.IdTime = t.IdTime;
+                    item.Nome = t.Nome;
+                    item.DataFundacao = t.DataFundacao.ToString("dd/MM/yyyy");
+
+                    model.Add(item);
+                }
+            }
+            catch (Exception e)
+            {
+                ViewBag.Mensagem = e.Message;
+            }
+
+            return View(model);
         }
 
         [HttpPost]

@@ -58,4 +58,14 @@ namespace Projeto.Web.Models
             }
         }
     }
+
+    public class JogadorModelConsulta
+    {
+        public int IdJogador { get; set; }
+        public string Nome { get; set; }
+        public string Apelido { get; set; }
+        public string DataNascimento { get; set; }
+        public string Posicao { get; set; }
+        public string Time { get; set; }
+    }
 }

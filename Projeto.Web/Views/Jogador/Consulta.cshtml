@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Projeto.Web.Models.JogadorModelConsulta>
+
+@{
+    ViewBag.Title = "Consulta";
+    Layout = "~/Views/Shared/Layou.cshtml";
+}
+
+<div class="container">
+    <h2>Consulta de Jogadores</h2>
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                Código
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Apelido
+            </th>
+            <th>
+                Data de Nascimento
+            </th>
+            <th>
+                Posição
+            </th>
+            <th>
+                Time
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdJogador)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apelido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataNascimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Posicao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+<div class="container">
+    @ViewBag.Mensagem
+</div>

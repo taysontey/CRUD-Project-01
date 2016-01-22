@@ -16,4 +16,11 @@ namespace Projeto.Web.Models
         [Display(Name = "Data de Fundação:")]
         public DateTime DataFundacao { get; set; }
     }
+
+    public class TimeModelConsulta
+    {
+        public int IdTime { get; set; }
+        public string Nome { get; set; }
+        public string DataFundacao { get; set; }
+    }
 }

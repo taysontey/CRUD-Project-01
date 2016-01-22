@@ -133,6 +133,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Time\Cadastro.cshtml" />
     <Content Include="Views\Jogador\Cadastro.cshtml" />
+    <Content Include="Views\Time\Consulta.cshtml" />
+    <Content Include="Views\Jogador\Consulta.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
