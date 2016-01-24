@@ -73,5 +73,44 @@ namespace Projeto.Web.Controllers
             }
             return View();
         }
+
+        public ActionResult Editar(int id)
+        {
+            var model = new TimeModelEdicao();
+
+            try
+            {
+                TimeDal d = new TimeDal();
+                Time t = d.FindById(id);
+
+                if (t != null)
+                {
+                    model.Nome = t.Nome;
+                    model.DataFundacao = t.DataFundacao;
+                }
+            }
+            catch (Exception e)
+            {
+                ViewBag.Mensagem = e.Message;
+            }
+            return View(model);
+        }
+
+        public ActionResult Excluir(int id)
+        {
+            try
+            {
+                TimeDal d = new TimeDal();
+                d.Delete(d.FindById(id));
+
+                ViewBag.Mensagem = "Time excluído com sucesso.";
+            }
+            catch (Exception e)
+            {
+                ViewBag.Mensagem = e.Message;
+            }
+
+            return RedirectToAction("Consulta");
+        }
     }
 }

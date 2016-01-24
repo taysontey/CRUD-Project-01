@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Projeto.Web.Models.TimeModelConsulta>
+
+@{
+    ViewBag.Title = "Consulta";
+    Layout = "~/Views/Shared/Layou.cshtml";
+}
+
+<div class="container">
+    <h2>Consulta de Times</h2>
+    <br />
+    <table class="table table-hover">
+        <tr>
+            <th>
+                Código
+            </th>
+            <th>
+               Nome
+            </th>
+            <th>
+                Data de Fundação
+            </th>
+            <th>
+                Opções
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataFundacao)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Editar", new { id = item.IdTime }) |
+                    @Html.ActionLink("Excluir", "Excluir", new { id = item.IdTime })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<div class="container">
+    @ViewBag.Mensagem
+</div>
