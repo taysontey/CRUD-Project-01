@@ -26,6 +26,9 @@ namespace Projeto.Web.Models
 
     public class TimeModelEdicao
     {
+        [Display(Name = "Código:")]
+        public int IdTime { get; set; }
+
         [Required(ErrorMessage = "Por favor, informe o nome do time.")]
         [Display(Name = "Nome:")]
         public string Nome { get; set; }

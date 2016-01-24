@@ -85,6 +85,7 @@ namespace Projeto.Web.Controllers
 
                 if (t != null)
                 {
+                    model.IdTime = t.IdTime;
                     model.Nome = t.Nome;
                     model.DataFundacao = t.DataFundacao;
                 }
@@ -94,6 +95,28 @@ namespace Projeto.Web.Controllers
                 ViewBag.Mensagem = e.Message;
             }
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(TimeModelEdicao model)
+        {
+            try
+            {
+                Time t = new Time();
+                TimeDal d = new TimeDal();
+
+                t.IdTime = model.IdTime;
+                t.Nome = model.Nome;
+                t.DataFundacao = model.DataFundacao;
+
+                d.Update(t);
+            }
+            catch (Exception e)
+            {
+                ViewBag.Mensagem = e.Message;
+            }
+
+            return RedirectToAction("Consulta");
         }
 
         public ActionResult Excluir(int id)
