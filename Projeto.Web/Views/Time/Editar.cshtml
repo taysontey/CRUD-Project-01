@@ -35,7 +35,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.DataFundacao, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.DataFundacao, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                    @Html.EditorFor(model => model.DataFundacao, new { htmlAttributes = new { @class = "form-control", @onfocus = "(this.type='date')", @onblur = "(this.type='text')" } })
                     @Html.ValidationMessageFor(model => model.DataFundacao, "", new { @class = "text-danger" })
                 </div>
             </div>

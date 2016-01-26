@@ -26,7 +26,7 @@ namespace Projeto.Web.Controllers
             {
                 JogadorDal d = new JogadorDal();
 
-                foreach(Jogador j in d.FindAll())
+                foreach (Jogador j in d.FindAll())
                 {
                     var item = new JogadorModelConsulta();
 
@@ -52,7 +52,7 @@ namespace Projeto.Web.Controllers
         {
             try
             {
-                if(ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     Jogador j = new Jogador();
                     JogadorDal d = new JogadorDal();
@@ -78,6 +78,76 @@ namespace Projeto.Web.Controllers
                 ViewBag.Mensagem = e.Message;
             }
             return View(new JogadorModelCadastro());
+        }
+
+        public ActionResult Editar(int id)
+        {
+            var model = new JogadorModelEdicao();
+
+            try
+            {
+                JogadorDal d = new JogadorDal();
+                Jogador j = d.FindById(id);
+
+                if (j != null)
+                {
+                    model.IdJogador = j.IdJogador;
+                    model.Nome = j.Nome;
+                    model.Apelido = j.Apelido;
+                    model.DataNascimento = j.DataNascimento;
+                    model.Posicao = j.Posicao;
+                    model.IdTime = j.IdTime;
+                }
+            }
+            catch (Exception e)
+            {
+                ViewBag.Mensagem = e.Message;
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(JogadorModelEdicao model)
+        {
+            try
+            {
+                Jogador j = new Jogador();
+                JogadorDal d = new JogadorDal();
+
+                j.IdJogador = model.IdJogador;
+                j.Nome = model.Nome;
+                j.Apelido = model.Apelido;
+                j.DataNascimento = model.DataNascimento;
+                j.Posicao = model.Posicao;
+                j.IdTime = model.IdTime;
+
+                d.Update(j);
+
+                ViewBag.Mensagem = "Jogador atualizado com sucesso.";
+            }
+            catch (Exception e)
+            {
+                ViewBag.Mensagem = e.Message;
+            }
+
+            return RedirectToAction("Consulta");
+        }
+
+        public ActionResult Excluir(int id)
+        {
+            try
+            {
+                JogadorDal d = new JogadorDal();
+                d.Delete(d.FindById(id));
+
+                ViewBag.Mensagem = "Jogador excluído com sucesso.";
+            }
+            catch (Exception e)
+            {
+                ViewBag.Mensagem = e.Message;
+            }
+
+            return RedirectToAction("Consulta");
         }
     }
 }

@@ -53,9 +53,8 @@
                     @Html.DisplayFor(modelItem => item.Time)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Editar", "Editar", new { id = item.IdJogador }) |
+                    @Html.ActionLink("Excluir", "Excluir", new { id = item.IdJogador })
                 </td>
             </tr>
         }
