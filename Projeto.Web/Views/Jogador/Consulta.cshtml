@@ -5,30 +5,36 @@
     Layout = "~/Views/Shared/Layou.cshtml";
 }
 
-<div class="container">
-    <h2>Consulta de Jogadores</h2>
+<div class="container" style="text-align:center">
+    <h3>Lista de Jogadores</h3>
     <br />
-    <table class="table">
+</div>
+
+<div class="container">
+
+    <table class="table" style="text-align:center">
         <tr>
-            <th>
+            <th style="text-align:center">
                 Código
             </th>
-            <th>
+            <th style="text-align:center">
                 Nome
             </th>
-            <th>
+            <th style="text-align:center">
                 Apelido
             </th>
-            <th>
+            <th style="text-align:center">
                 Data de Nascimento
             </th>
-            <th>
+            <th style="text-align:center">
                 Posição
             </th>
-            <th>
+            <th style="text-align:center">
                 Time
             </th>
-            <th></th>
+            <th style="text-align:center">
+                Opções
+            </th>
         </tr>
 
         @foreach (var item in Model)
