@@ -20,7 +20,7 @@ namespace Projeto.Web.Controllers
         [AllowAnonymous]
         public ActionResult Consulta()
         {
-            var model = new List<JogadorModelConsulta>();
+            var list = new List<JogadorModelConsulta>();
 
             try
             {
@@ -28,23 +28,23 @@ namespace Projeto.Web.Controllers
 
                 foreach (Jogador j in d.FindAll())
                 {
-                    var item = new JogadorModelConsulta();
+                    var model = new JogadorModelConsulta();
 
-                    item.IdJogador = j.IdJogador;
-                    item.Nome = j.Nome;
-                    item.Apelido = j.Apelido;
-                    item.DataNascimento = j.DataNascimento.ToString("dd/MM/yyyy");
-                    item.Posicao = j.Posicao;
-                    item.Time = j.Time.Nome;
+                    model.IdJogador = j.IdJogador;
+                    model.Nome = j.Nome;
+                    model.Apelido = j.Apelido;
+                    model.DataNascimento = j.DataNascimento.ToString("dd/MM/yyyy");
+                    model.Posicao = j.Posicao;
+                    model.Time = j.Time.Nome;
 
-                    model.Add(item);
+                    list.Add(model);
                 }
             }
             catch (Exception e)
             {
                 ViewBag.Mensagem = e.Message;
             }
-            return View(model);
+            return View(list);
         }
 
         [HttpPost]
@@ -55,14 +55,13 @@ namespace Projeto.Web.Controllers
                 if (ModelState.IsValid)
                 {
                     Jogador j = new Jogador();
-                    JogadorDal d = new JogadorDal();
-
                     j.Nome = model.Nome;
                     j.Apelido = model.Apelido;
                     j.DataNascimento = model.DataNascimento;
                     j.Posicao = model.Posicao;
                     j.IdTime = model.IdTime;
 
+                    JogadorDal d = new JogadorDal();
                     d.Insert(j);
 
                     ViewBag.Mensagem = "O jogador " + j.Nome + ", foi cadastrado com sucesso.";
@@ -77,6 +76,7 @@ namespace Projeto.Web.Controllers
             {
                 ViewBag.Mensagem = e.Message;
             }
+
             return View(new JogadorModelCadastro());
         }
 
@@ -112,8 +112,6 @@ namespace Projeto.Web.Controllers
             try
             {
                 Jogador j = new Jogador();
-                JogadorDal d = new JogadorDal();
-
                 j.IdJogador = model.IdJogador;
                 j.Nome = model.Nome;
                 j.Apelido = model.Apelido;
@@ -121,6 +119,7 @@ namespace Projeto.Web.Controllers
                 j.Posicao = model.Posicao;
                 j.IdTime = model.IdTime;
 
+                JogadorDal d = new JogadorDal();
                 d.Update(j);
 
                 ViewBag.Mensagem = "Jogador atualizado com sucesso.";

@@ -20,7 +20,7 @@ namespace Projeto.Web.Controllers
         [AllowAnonymous]
         public ActionResult Consulta()
         {
-            var model = new List<TimeModelConsulta>();
+            var list = new List<TimeModelConsulta>();
 
             try
             {
@@ -28,12 +28,12 @@ namespace Projeto.Web.Controllers
 
                 foreach (Time t in d.FindAll())
                 {
-                    var item = new TimeModelConsulta();
-                    item.IdTime = t.IdTime;
-                    item.Nome = t.Nome;
-                    item.DataFundacao = t.DataFundacao.ToString("dd/MM/yyyy");
+                    var model = new TimeModelConsulta();
+                    model.IdTime = t.IdTime;
+                    model.Nome = t.Nome;
+                    model.DataFundacao = t.DataFundacao.ToString("dd/MM/yyyy");
 
-                    model.Add(item);
+                    list.Add(model);
                 }
             }
             catch (Exception e)
@@ -41,7 +41,7 @@ namespace Projeto.Web.Controllers
                 ViewBag.Mensagem = e.Message;
             }
 
-            return View(model);
+            return View(list);
         }
 
         [HttpPost]
@@ -52,11 +52,10 @@ namespace Projeto.Web.Controllers
                 if (ModelState.IsValid)
                 {
                     Time t = new Time();
-                    TimeDal d = new TimeDal();
-
                     t.Nome = model.Nome;
                     t.DataFundacao = model.DataFundacao;
 
+                    TimeDal d = new TimeDal();
                     d.Insert(t);
 
                     ViewBag.Mensagem = "Time " + t.Nome + ", cadastrado com sucesso.";
@@ -103,12 +102,11 @@ namespace Projeto.Web.Controllers
             try
             {
                 Time t = new Time();
-                TimeDal d = new TimeDal();
-
                 t.IdTime = model.IdTime;
                 t.Nome = model.Nome;
                 t.DataFundacao = model.DataFundacao;
 
+                TimeDal d = new TimeDal();
                 d.Update(t);
             }
             catch (Exception e)
